@@ -3,7 +3,7 @@ const Suites = () => {
 
     return (
         <div>
-
+            We offer this
         </div>
     )
 }

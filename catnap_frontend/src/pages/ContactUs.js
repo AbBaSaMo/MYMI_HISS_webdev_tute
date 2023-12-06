@@ -3,7 +3,7 @@ const ContactUs = () => {
 
     return (
         <div>
-
+            Call us
         </div>
     )
 }

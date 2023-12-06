@@ -3,7 +3,7 @@ const AboutUs = () => {
 
     return (
         <div>
-
+            We are cats
         </div>
     )
 }
