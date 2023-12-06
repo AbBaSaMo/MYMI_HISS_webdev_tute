@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {ChakraProvider, Spacer, VStack} from '@chakra-ui/react';
+import {Box, VStack} from '@chakra-ui/react';
 import AboutUs from "./pages/AboutUs";
 import FAQ from "./pages/FAQ";
 import Suites from "./pages/Suites";
@@ -14,23 +14,22 @@ import Header from "./components/Header";
 function App() {
     return (
         <div className="App">
-            <ChakraProvider>
-                <VStack>
-                    <HeaderAnnouncement/>
-                    <Header/>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path='/' element={<Home/>}/>
-                            <Route path='/about' element={<AboutUs/>}/>
-                            <Route path='/suites' element={<Suites/>}/>
-                            <Route path='/faq' element={<FAQ/>}/>
-                            <Route path='/contact-us' element={<ContactUs/>}/>
-                            <Route path='/*' element={<NotFound/>}/>
-                        </Routes>
-                    </BrowserRouter>
-                    <Footer/>
-                </VStack>
-            </ChakraProvider>
+            <VStack minH='100vh'>
+                <HeaderAnnouncement/>
+                <Header/>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element={<Home/>}/>
+                        <Route path='/about' element={<AboutUs/>}/>
+                        <Route path='/suites' element={<Suites/>}/>
+                        <Route path='/faq' element={<FAQ/>}/>
+                        <Route path='/contact-us' element={<ContactUs/>}/>
+                        <Route path='/*' element={<NotFound/>}/>
+                    </Routes>
+                </BrowserRouter>
+                <Box mt='auto'/> {/* keep the footer down */}
+                <Footer/>
+            </VStack>
         </div>
     );
 }
