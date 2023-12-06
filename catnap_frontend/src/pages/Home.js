@@ -1,10 +1,11 @@
+import {Box} from "@chakra-ui/react";
 
 const Home = () => {
 
     return (
-        <div>
+        <Box h='600px' bg='lightgrey'>
             Home sweet home
-        </div>
+        </Box>
     )
 }
 
