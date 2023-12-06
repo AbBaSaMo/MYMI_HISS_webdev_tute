@@ -28,7 +28,6 @@ function App() {
                             <Route path='/*' element={<NotFound/>}/>
                         </Routes>
                     </BrowserRouter>
-                    <Spacer/>
                     <Footer/>
                 </VStack>
             </ChakraProvider>
