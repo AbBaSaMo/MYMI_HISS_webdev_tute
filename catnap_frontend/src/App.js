@@ -7,11 +7,16 @@ import Suites from "./pages/Suites";
 import ContactUs from "./pages/ContactUs";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import HeaderAnnouncement from "./components/HeaderAnnouncement";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
     return (
         <div className="App">
             <ChakraProvider>
+                <HeaderAnnouncement/>
+                <Header/>
                 <BrowserRouter>
                     <Routes>
                         <Route path='/' element={<Home/>}/>
@@ -22,6 +27,7 @@ function App() {
                         <Route path='/*' element={<NotFound/>}/>
                     </Routes>
                 </BrowserRouter>
+                <Footer/>
             </ChakraProvider>
         </div>
     );
