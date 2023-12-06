@@ -4,7 +4,7 @@ import NavLink from './NavLink';
 const Header = () => {
 
     return (
-        <Box w='100%' h='80px'>
+        <Box w='100%' h='80px' mt='-10px'>
             <Box
                 w='100%'
                 h='100%'
