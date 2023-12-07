@@ -22,7 +22,7 @@ const Header = () => {
                     <Spacer/>
                     <NavLink href='/faq' text='FAQ'/>
                     <Spacer/>
-                    <NavLink href='/contact' text='CONTACT US'/>
+                    <NavLink href='/contact-us' text='CONTACT US'/>
                     <Spacer/>
                 </Flex>
             </Box>
