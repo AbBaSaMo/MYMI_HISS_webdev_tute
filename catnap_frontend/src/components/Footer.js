@@ -3,7 +3,7 @@ import { Box, VStack, Text, Image, Spacer, Link } from "@chakra-ui/react";
 const Footer = () => {
 
     return (
-        <Box w='100%' h='250px' bg='#9EA39F' minW='100%'>
+        <Box w='100%' h='250px' bg='#9EA39F' minW='100%' mt='auto'>
             <VStack>
                 <Spacer/>
                 <Image

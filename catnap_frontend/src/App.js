@@ -27,7 +27,6 @@ function App() {
                         <Route path='/*' element={<NotFound/>}/>
                     </Routes>
                 </BrowserRouter>
-                <Box mt='auto'/> {/* keep the footer down */}
                 <Footer/>
             </VStack>
         </div>
