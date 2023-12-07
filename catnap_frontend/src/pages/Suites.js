@@ -1,4 +1,4 @@
-import {Box, Text, VStack} from "@chakra-ui/react";
+import {Box, HStack, Text, VStack, Image} from "@chakra-ui/react";
 
 const Suites = () => {
 
@@ -93,12 +93,33 @@ const Suites = () => {
             <Box w='100%' h='40px'/>
             <Text fontSize='3xl' as='b'>Our Suites</Text>
             <hr/>
-            <Text textAlign='center' as='b'>
+            <Text textAlign='center'>
                 We also offer seven types of accommodation, designed to cater for cat needs as<br/>
                 well as offering different standards of accommodation.<br/>
                 Discounts for multiple cats to be lodged at Catnap Cattery are offered!
             </Text>
             <hr/>
+
+            {suites.map((suite) =>
+                <HStack w='600px' mb='2em'>
+                    <Image
+                        w='300px'
+                        src={suite.imgSrc}
+                        alt={'picture of a ' + suite.suiteName}
+                    />
+                    <VStack w='300px' ml='auto'>
+                        <Text as='b'>{suite.suiteName}</Text>
+                        <Text>{suite.description}</Text>
+                        <Box h='0.2em'/>
+                        {suite.costDescription.map((cost) => (
+                            <HStack>
+                                <Text as='b'>{cost.value}</Text>
+                                <Text>{cost.unit}</Text>
+                            </HStack>
+                        ))}
+                    </VStack>
+                </HStack>
+            )}
 
         </VStack>
     )
