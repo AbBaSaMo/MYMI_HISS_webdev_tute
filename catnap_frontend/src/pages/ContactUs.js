@@ -4,7 +4,7 @@ import ContactForm from "../components/ContactForm";
 const ContactUs = () => {
 
     return (
-        <Box bg='#F1F1F1' ml='auto' mr='auto' minW='100vw'>
+        <Box bg='#F1F1F1' minW='100%'>
             <Box w='100%' h='40px'/>
             <VStack>
                 <Text fontSize='3xl' as='b'>Contact Us</Text>
@@ -15,46 +15,50 @@ const ContactUs = () => {
                 </Text>
             </VStack>
 
-            <HStack w='800px' ml='auto' mr='auto'>
-                {/* BUSINESS INFO */}
-                <VStack w='35%' pt='3em'>
-                    <Box borderWidth='5px' borderColor='black' mb='0.75em' p='1.5em' w='100%'>
-                        <Text fontSize='3xl' as='b'>
-                            Opening<br/>
-                            Hours
-                        </Text>
-                        <Box h='1em'/>
-                        <Text fontSize='lg'>
-                            Mon-Fri: 9am-5pm<br/>
-                            Sat: 10am-3pm<br/>
-                            Sunday: Closed
-                        </Text>
-                    </Box>
+            <Center>
+                <HStack w='800px'>
+                    {/* BUSINESS INFO */}
+                    <VStack w='35%' pt='3em'>
+                        <Box borderWidth='5px' borderColor='black' mb='0.75em' p='1.5em' w='100%'>
+                            <Text fontSize='3xl' as='b'>
+                                Opening<br/>
+                                Hours
+                            </Text>
+                            <Box h='1em'/>
+                            <Text fontSize='lg'>
+                                Mon-Fri: 9am-5pm<br/>
+                                Sat: 10am-3pm<br/>
+                                Sunday: Closed
+                            </Text>
+                        </Box>
 
-                    <Box borderWidth='5px' borderColor='black' p='1em' w='100%'>
-                        <Center>
-                            <HStack>
-                                <Text fontSize='lg' as='b'>Phone: </Text><Text fontSize='lg'>03 9753 2933</Text>
-                            </HStack>
-                        </Center>
-                    </Box>
-                </VStack>
+                        <Box borderWidth='5px' borderColor='black' p='1em' w='100%'>
+                            <Center>
+                                <HStack>
+                                    <Text fontSize='lg' as='b'>Phone: </Text><Text fontSize='lg'>03 9753 2933</Text>
+                                </HStack>
+                            </Center>
+                        </Box>
+                    </VStack>
 
-                <ContactForm/>
-            </HStack>
+                    <ContactForm/>
+                </HStack>
+            </Center>
+
 
             {/* BUSINESS LOCATION MAP */}
             <Box h='2em'/>
-            <Text fontSize='lg'>You can also arrange a booking in person at our Knoxfield facility</Text>
-            <Image
-                w='800px'
-                ml='auto'
-                mr='auto'
-                mt='1em'
-                mb='3em'
-                src='../company_location.png'
-                alt='a map showcasing our location'
-            />
+            <VStack>
+                <Text fontSize='lg'>You can also arrange a booking in person at our Knoxfield facility</Text>
+                <Image
+                    w='800px'
+                    mt='1em'
+                    mb='3em'
+                    src='../company_location.png'
+                    alt='a map showcasing our location'
+                />
+            </VStack>
+
         </Box>
     )
 }
