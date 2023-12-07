@@ -1,10 +1,18 @@
 import {Box} from "@chakra-ui/react";
+import AboutUs from "./AboutUs";
+import Suites from "./Suites";
+import FAQ from "./FAQ";
+import ContactUs from "./ContactUs";
 
 const Home = () => {
 
     return (
-        <Box h='600px' bg='lightgrey'>
-            Home sweet home
+        <Box w='100%'>
+            <AboutUs/>
+            <Suites/>
+            <FAQ/>
+
+            <ContactUs/>
         </Box>
     )
 }
