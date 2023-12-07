@@ -1,19 +1,10 @@
-import {
-    Box,
-    Button,
-    FormControl,
-    FormLabel,
-    HStack,
-    Input,
-    Text,
-    Textarea,
-    VStack
-} from "@chakra-ui/react";
+import { Box, Center, HStack, Text, VStack, Image } from "@chakra-ui/react";
+import ContactForm from "../components/ContactForm";
 
 const ContactUs = () => {
 
     return (
-        <Box>
+        <Box bg='#F1F1F1' ml='auto' mr='auto' minW='100vw'>
             <Box w='100%' h='40px'/>
             <VStack>
                 <Text fontSize='3xl' as='b'>Contact Us</Text>
@@ -24,9 +15,9 @@ const ContactUs = () => {
                 </Text>
             </VStack>
 
-            <HStack>
+            <HStack w='800px' ml='auto' mr='auto'>
                 {/* BUSINESS INFO */}
-                <VStack w='35%' pt='2em'>
+                <VStack w='35%' pt='3em'>
                     <Box borderWidth='5px' borderColor='black' mb='0.75em' p='1.5em' w='100%'>
                         <Text fontSize='3xl' as='b'>
                             Opening<br/>
@@ -40,34 +31,30 @@ const ContactUs = () => {
                         </Text>
                     </Box>
 
-                    <Box borderWidth='5px' borderColor='black' pt='1em' pb='1em' w='100%'>
-                        <Text fontSize='lg' as='b'>Phone: </Text><Text fontSize='lg'>03 9753 2933</Text>
+                    <Box borderWidth='5px' borderColor='black' p='1em' w='100%'>
+                        <Center>
+                            <HStack>
+                                <Text fontSize='lg' as='b'>Phone: </Text><Text fontSize='lg'>03 9753 2933</Text>
+                            </HStack>
+                        </Center>
                     </Box>
                 </VStack>
 
-                {/* CONTACT FORM */}
-                <VStack w='55%' ml='auto'>
-                    <Text fontSize='3xl' as='b' mr='auto'>Send us a Message</Text>
-                    <FormControl>
-                        <FormLabel>Name:</FormLabel>
-                        <Input type='text'/>
-
-                        <FormLabel>Email:</FormLabel>
-                        <Input type='email'/>
-
-                        <FormLabel>Message:</FormLabel>
-                        <Textarea type=''></Textarea>
-
-                        <Button colorScheme='white' variant='ghost'>Submit</Button>
-                    </FormControl>
-                </VStack>
-
+                <ContactForm/>
             </HStack>
 
             {/* BUSINESS LOCATION MAP */}
             <Box h='2em'/>
             <Text fontSize='lg'>You can also arrange a booking in person at our Knoxfield facility</Text>
-            <Box>[MAP GOES HERE]</Box>
+            <Image
+                w='800px'
+                ml='auto'
+                mr='auto'
+                mt='1em'
+                mb='3em'
+                src='../company_location.png'
+                alt='a map showcasing our location'
+            />
         </Box>
     )
 }
