@@ -10,7 +10,7 @@ const FAQ = () => {
         }, {
             question: "My cat has a particular diet they need to stick to/" +
                 "is very picky - will your services still provide for them?",
-            answer: "Most definitely! When you make a booking we will aske you " +
+            answer: "Most definitely! When you make a booking we will ask you " +
                 "to let us know about any dietary requirements :)"
         }, {
             question: "Which suite should I select for my cat?",
