@@ -1,5 +1,13 @@
-import {Button, FormControl, FormLabel, Input, Text, Textarea, VStack, useToast} from "@chakra-ui/react";
 import { useState } from 'react';
+import {
+    Button,
+    FormControl,
+    FormLabel,
+    Input, Text,
+    Textarea,
+    VStack,
+    useToast
+} from "@chakra-ui/react";
 
 const ContactForm = () => {
     const [name, setName] = useState('');
@@ -25,8 +33,8 @@ const ContactForm = () => {
             invalidFields.push('email is not valid');
         }
 
+        /* CREATE HOT TOASTS FOR INVALID FIELDS */
         if (invalidFields.length > 0) {
-            // generate hot toasts
             invalidFields.forEach((errorMsg) => {
                 toast({
                     title: 'Input error',
@@ -52,27 +60,32 @@ const ContactForm = () => {
             }),
         };
 
+        /* SEND REQUEST THEN GENERATE TOAST BASED ON OUTCOME */
         fetch('http://localhost:4000/api/send-email', fetchOptions)
-            .then((res) => res.text())
+            .then((res) => res.json())
             .then((res) => {
                 toast({
-                    title: 'Success',
-                    description: res,
-                    status: 'success',
+                    title: res.title,
+                    description: res.msg,
+                    status: res.status,
                     duration: 4000,
                     isClosable: true,
                 })
             })
             .catch((error) => {
-                console.log(error)
-                // toast({
-                //     title: 'Success',
-                //     description: error,
-                //     status: 'success',
-                //     duration: 4000,
-                //     isClosable: true,
-                // })
+                toast({
+                    title: 'Error',
+                    description: "something went wrong :(",
+                    status: 'error',
+                    duration: 4000,
+                    isClosable: true,
+                })
             });
+
+        /* RESET FIELDS */
+        setEmail('');
+        setName('');
+        setMessage('');
     }
 
     return (

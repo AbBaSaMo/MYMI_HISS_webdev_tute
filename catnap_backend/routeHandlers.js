@@ -1,7 +1,6 @@
 const sendgridMail = require('@sendgrid/mail');
-// sendgridMail.setApiKey(process.env.SENDGRID_KEY);
-sendgridMail.setApiKey("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");
-
+require('dotenv').config();
+sendgridMail.setApiKey(process.env.SENDGRID_KEY);
 
 // our route handler for sending an email
 // obtained from https://www.twilio.com/blog/email-contact-form-sendgrid-node-js
@@ -13,12 +12,10 @@ const emailSender = (req, res) => {
         name
     } = req.body;
 
-    console.log('in here')
-
     // build the email we are going to send
     const emailContents = {
         to: process.env.SENDGRID_AUTHENTICATED_EMAIL,
-        from: process.env.SENDGRID_AUTHENTICATED_EMAI,
+        from: process.env.SENDGRID_AUTHENTICATED_EMAIL,
         replyTo: email,
         subject: 'Catnap contact form',
         text: `${message}\nfrom ${name}`
@@ -27,9 +24,17 @@ const emailSender = (req, res) => {
     // send the email and respond to the frontend based on its success
     try {
         sendgridMail.send(emailContents);
-        res.status(200).send("email sent");
+        res.status(200).json({
+            title: "Success",
+            status: "success",
+            msg: "email sent"
+        });
     } catch (error) {
-        res.status(400).send("could not send email");
+        res.status(400).json({
+            title: "Error",
+            status: "error",
+            msg: "could not send email"
+        });
     }
 }
 
