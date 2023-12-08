@@ -1,5 +1,7 @@
 const sendgridMail = require('@sendgrid/mail');
-sendgridMail.setApiKey(process.env.SENDGRID_KEY);
+// sendgridMail.setApiKey(process.env.SENDGRID_KEY);
+sendgridMail.setApiKey("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");
+
 
 // our route handler for sending an email
 // obtained from https://www.twilio.com/blog/email-contact-form-sendgrid-node-js
@@ -10,6 +12,8 @@ const emailSender = (req, res) => {
         message,
         name
     } = req.body;
+
+    console.log('in here')
 
     // build the email we are going to send
     const emailContents = {

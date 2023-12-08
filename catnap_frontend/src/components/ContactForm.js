@@ -7,7 +7,7 @@ const ContactForm = () => {
     const [message, setMessage] = useState('');
     const toast = useToast()
 
-    const sendEmail = () => {
+    const sendEmail = async () => {
         const invalidFields = []
 
         /* INPUT VALIDATIONS */
@@ -40,8 +40,7 @@ const ContactForm = () => {
             return
         }
 
-
-        fetch('http://localhost:4000/send-email', {
+        const fetchOptions = {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json'
@@ -51,7 +50,29 @@ const ContactForm = () => {
                 email: email,
                 message: message
             }),
-        });
+        };
+
+        fetch('http://localhost:4000/api/send-email', fetchOptions)
+            .then((res) => res.text())
+            .then((res) => {
+                toast({
+                    title: 'Success',
+                    description: res,
+                    status: 'success',
+                    duration: 4000,
+                    isClosable: true,
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+                // toast({
+                //     title: 'Success',
+                //     description: error,
+                //     status: 'success',
+                //     duration: 4000,
+                //     isClosable: true,
+                // })
+            });
     }
 
     return (
