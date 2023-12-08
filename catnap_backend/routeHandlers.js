@@ -4,12 +4,14 @@ sendgridMail.setApiKey(process.env.SENDGRID_KEY);
 // our route handler for sending an email
 // obtained from https://www.twilio.com/blog/email-contact-form-sendgrid-node-js
 const emailSender = (req, res) => {
+    // get the content of the submitted request
     const {
         email,
         message,
         name
     } = req.body;
 
+    // build the email we are going to send
     const emailContents = {
         to: process.env.SENDGRID_AUTHENTICATED_EMAIL,
         from: process.env.SENDGRID_AUTHENTICATED_EMAI,
@@ -18,6 +20,7 @@ const emailSender = (req, res) => {
         text: `${message}\nfrom ${name}`
     }
 
+    // send the email and respond to the frontend based on its success
     try {
         sendgridMail.send(emailContents);
         res.status(200).send("email sent");
