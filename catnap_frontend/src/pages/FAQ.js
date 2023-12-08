@@ -63,7 +63,6 @@ const FAQ = () => {
                     )))}
                 </Accordion>
             </Center>
-
         </Box>
     )
 }
